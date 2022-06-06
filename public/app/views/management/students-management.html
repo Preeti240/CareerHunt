@@ -1,0 +1,64 @@
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Students Database</h4>
+    </div>
+</div>
+
+
+<form class="form-material">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control form-control-line"
+        placeholder="Type here to Search for student name"
+        ng-model="studentName"
+      />
+    </div>
+  </form>
+
+  <span class="text-purple"
+  >Total {{ studentsManagement.student.length }}
+  Registered Student(s).</span
+>
+<div class="table-responsive" >
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="text-center">Sr No.</th>
+            <th>NAME</th>
+            <th>COLLEGE ID</th>
+            <th>CONTACT NO</th>
+            <th>EMAIL</th>
+
+            <th>DEGREE</th>
+            <th>BRANCH</th>
+            <th>PASSOUT YEAR</th>
+            <th>CGPA</th>
+            <th>10th</th>
+            <th>12th</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="student in studentsManagement.student|filter:studentName">
+                <td>{{ $index + 1}}.</td>
+                <td>
+                  <a class="text-primary"> {{ student.student_name }}</a>
+                </td>
+                <td><a>{{ student.college_id }} </a></td>
+                <td>+91 {{ student.contact_no }}</td>
+                <td>{{ student.college_email }}</td>
+              
+                <td>{{ student.degree }}</td>
+                <td>{{ student.department }}</td>
+                <td>{{student.passout_batch}}</td>
+                <td>{{ student.cgpa }}</td>
+                <td>{{ student.matric_marks }}</td>
+                <td>{{ student.senior_marks }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="text-align: center">
+    <a href="/searchStudent"><button type="submit" class="btn btn-primary btn-rounded">&nbsp;Search and Update Profile</button></a>
+</div>
