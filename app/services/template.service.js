@@ -1,6 +1,6 @@
-const from = '"Employeehunt" <vikrant.patil18@vit.edu>';
-const baseUrl = 'https://warm-shore-56434.herokuapp.com/';
-const email_signature = '<br><br>With Regards.<br><br>Employeehunt<br>VIT Pune<br>';
+const from = '"CareerHunt" <preeti.18@vit.edu>';
+const baseUrl = 'https://careerhunt.herokuapp.com/';
+const email_signature = '<br><br>With Regards.<br><br>CareerHunt<br>VIT Pune<br>';
 
 exports.getEmailOpts = (data, mailType) => {
 
@@ -10,7 +10,7 @@ exports.getEmailOpts = (data, mailType) => {
             return {
                 from : from,
                 to:  data.college_email,
-                subject: 'Login Request: Employehunt',
+                subject: 'Login Request: CareerHunt',
                 text: 'Hello '+ data.student_name + 'We have received a login request for your account.Please find the below OTP to proceed further',
                 html: 'Hello <strong>'+ data.student_name + '</strong>,<br><br>A sign in attempt to Placement Portal requires further verification to prevent unauthorized access to your account. To complete the sign in, enter the verification code on the Placement Portal.<br><br>Verification Code: ' + data.login_otp + email_signature
             }
@@ -20,7 +20,7 @@ exports.getEmailOpts = (data, mailType) => {
             return {
                 from: from,
                 to: data.college_email,
-                subject: 'Reset Password Request : Employeehunt',
+                subject: 'Reset Password Request : CareerHunt',
                 text: 'Hello '+ data.student_name + 'You requested for the reset password.Please find the below link Reset password ',
                 html: 'Hello <strong>'+ data.student_name + '</strong>,<br><br>You requested for the reset password. Please find the below link<br><br><a href="' + baseUrl + "/forgotPassword/" + data.temporarytoken + '">Reset password</a>'+ email_signature
             }
@@ -30,8 +30,8 @@ exports.getEmailOpts = (data, mailType) => {
             return {
                 from: from,
                 to: data.college_email,
-                subject: 'Password Updated : Employeehunt',
-                text: 'Hello '+ data.student_name + 'Your password has been successfully updated.With Regards, Prof. Mahendar Choudhary',
+                subject: 'Password Updated : CareerHunt',
+                text: 'Hello '+ data.student_name + 'Your password has been successfully updated.With Regards, TPO Team',
                 html: 'Hello <strong>'+ data.student_name + '</strong>,<br><br>Your password has been successfully updated.'+ email_signature
             }
             break;
@@ -41,7 +41,7 @@ exports.getEmailOpts = (data, mailType) => {
                 from: from,
                 to: data.college_email,
                 subject: 'Yay! We have published your article ' + data.title,
-                text: 'Hello '+ data.author_name + 'Thanks for sharing your interview process and thoughts with us With Regards, Prof. Mahendar Choudhary',
+                text: 'Hello '+ data.author_name + 'Thanks for sharing your interview process and thoughts with us With Regards, TPO Team',
                 html: 'Hello <strong>'+ data.author_name + '</strong>,<br><br>Thanks for sharing your interview process and thoughts with us to help others. We have published your interview experience after a few modifications. We wish you luck for the future! Please find the link below -<br><br><a href="' + baseUrl + "/experience/" + data._id + '">' + data.title + ' </a>'+ email_signature
             };
             break;
