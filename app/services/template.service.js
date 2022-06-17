@@ -1,4 +1,4 @@
-const from = '"CareerHunt" <preeti.18@vit.edu>';
+const from = '"CareerHunt" <preetirajesh400@gmail.com>';
 const baseUrl = 'https://careerhunt.herokuapp.com/';
 const email_signature = '<br><br>With Regards.<br><br>CareerHunt<br>VIT Pune<br>';
 
